@@ -11,10 +11,15 @@ frappe.ui.form.on('Contracts', {
       frm.add_fetch('bid','vendor_supplier','vendor_supplier')
       frm.add_fetch('bid','bid_value','bid_value')
       
-     let num = 9804874641;
-     frm.set_value("contract_number", num); 
+      if (!frm.doc.contract_number) {
+       let d = new Date();
+       let num = d.valueOf();
+       frm.set_value("contract_number", num);
+     }
      
-     console.log(frm.doc)
+     if (!frm.doc.bid_value) {
+       frm.set_value("payment", frm.doc.bid_value);
+     }
       if (frm.doc.procurement_type) {
         if (frm.doc.docstatus===1){
         	if(frm.doc.procurement_type === "Goods"){

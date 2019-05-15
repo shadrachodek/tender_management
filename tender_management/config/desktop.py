@@ -9,6 +9,6 @@ def get_data():
 			"color": "#9D0B0E",
 			"icon": "octicon octicon-book",
 			"type": "module",
-			"label": _("Tender Management")
+			"label": _("EP Procurement Management")
 		}
 	]
