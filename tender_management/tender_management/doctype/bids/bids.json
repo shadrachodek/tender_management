@@ -843,7 +843,7 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 5, 
- "modified": "2019-05-15 09:58:04.728758", 
+ "modified": "2019-05-15 14:21:20.843471", 
  "modified_by": "Administrator", 
  "module": "Tender Management", 
  "name": "Bids", 
@@ -852,7 +852,7 @@
  "permissions": [
   {
    "amend": 0, 
-   "cancel": 0, 
+   "cancel": 1, 
    "create": 1, 
    "delete": 1, 
    "email": 1, 
@@ -866,11 +866,11 @@
    "role": "System Manager", 
    "set_user_permissions": 0, 
    "share": 1, 
-   "submit": 0, 
+   "submit": 1, 
    "write": 1
   }
  ], 
- "quick_entry": 1, 
+ "quick_entry": 0, 
  "read_only": 0, 
  "read_only_onload": 0, 
  "search_fields": "application_number", 

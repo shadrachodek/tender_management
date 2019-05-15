@@ -9,7 +9,7 @@ frappe.ui.form.on('Contracts', {
       frm.add_fetch('bid','lot_number','lot_number')
       frm.add_fetch('bid','description','description')
       frm.add_fetch('bid','vendor_supplier','vendor_supplier')
-      frm.add_fetch('bid','bid_value','bid_value')
+      frm.add_fetch('bid','bid_value','approved_sum')
       
       if (!frm.doc.contract_number) {
        let d = new Date();
@@ -17,9 +17,6 @@ frappe.ui.form.on('Contracts', {
        frm.set_value("contract_number", num);
      }
      
-     if (!frm.doc.bid_value) {
-       frm.set_value("payment", frm.doc.bid_value);
-     }
       if (frm.doc.procurement_type) {
         if (frm.doc.docstatus===1){
         	if(frm.doc.procurement_type === "Goods"){
@@ -64,5 +61,6 @@ frappe.ui.form.on('Contracts', {
       }
       
     },
+        
     
 });

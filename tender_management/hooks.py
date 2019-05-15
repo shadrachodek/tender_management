@@ -87,6 +87,12 @@ app_license = "MIT"
 #	}
 # }
 
+#doc_events = {
+#  "contracts": {
+#    "validate": "tender_management.tender_management.doctype.contracts.contracts.get_payment_balance",
+#  }
+#}
+
 # Scheduled Tasks
 # ---------------
 

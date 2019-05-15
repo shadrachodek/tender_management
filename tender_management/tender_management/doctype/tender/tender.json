@@ -615,7 +615,7 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 0, 
- "modified": "2019-05-15 10:44:59.011762", 
+ "modified": "2019-05-15 14:19:44.718126", 
  "modified_by": "Administrator", 
  "module": "Tender Management", 
  "name": "Tender", 
@@ -642,7 +642,7 @@
    "write": 1
   }
  ], 
- "quick_entry": 1, 
+ "quick_entry": 0, 
  "read_only": 0, 
  "read_only_onload": 0, 
  "search_fields": "tender_name", 

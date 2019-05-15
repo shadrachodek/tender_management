@@ -24,7 +24,7 @@ def get_data():
 				},
         {
 					"type": "doctype",
-					"name": "Payment",
+					"name": "Contract Payments",
 					"description": _("Make manager for contract"),
 				},
 			]
