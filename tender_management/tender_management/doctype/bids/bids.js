@@ -6,7 +6,7 @@ frappe.ui.form.on('Bids', {
  
   frm.add_fetch('tender','tender_ref_number','tender_ref_number')
           
-     if (!frm.doc.application_number) {
+  if (!frm.doc.application_number) {
      let d = new Date();
      let num = d.valueOf();
      frm.set_value("application_number", num);

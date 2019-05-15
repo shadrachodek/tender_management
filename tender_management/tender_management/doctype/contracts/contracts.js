@@ -47,7 +47,7 @@ frappe.ui.form.on('Contracts', {
           }
     	}    
     }
-      
+          
 	 },
    
     "tender": function(frm) {
@@ -61,6 +61,5 @@ frappe.ui.form.on('Contracts', {
       }
       
     },
-        
     
 });

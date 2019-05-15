@@ -22,6 +22,7 @@ frappe.ui.form.on('Tender', {
          frm.add_custom_button(__('Make Bids'), () => {
              frappe.route_options = {
                "tender": frm.doc.tender_name,
+               "tender_ref_number": frm.doc.tender_ref_number,
              };
           frappe.new_doc("Bids");
     		});

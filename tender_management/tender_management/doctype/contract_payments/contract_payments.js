@@ -5,7 +5,7 @@ frappe.ui.form.on('Payment', {
 	refresh: function(frm) {
  
       frm.add_fetch('contract_name','contract_number','contract_number')
-      frm.add_fetch('contract_name','bid_value','contract_value')
+      frm.add_fetch('contract_name','approved_sum','contract_value')
 
 	}
 });
