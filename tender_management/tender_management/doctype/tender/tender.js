@@ -4,14 +4,6 @@
 frappe.ui.form.on('Tender', {
 	refresh: function(frm) {
  
- 	// show / hide new buttons (if allowed)
-		this.links_area.find('.btn-new').each(function() {
-			if(frm.can_create($(this).attr('data-doctype'))) {
-          console.log("ggggggggg")
-				$(this).removeClass('hidden');
-			}
-		});
- 
     if (!frm.doc.tender_ref_number) {
      let d = new Date();
      let num = d.valueOf();
