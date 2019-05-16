@@ -2,7 +2,8 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Tender', {
-	refresh: function(frm) {
+    
+	onload: function(frm) {
  
     if (!frm.doc.tender_ref_number) {
      let d = new Date();
@@ -28,7 +29,7 @@ frappe.ui.form.on('Tender', {
     		});
       }
 	}
-// console.log(frappe.datetime.get_diff(frm.doc.deadline, frappe.datetime.get_today()))
+// console.log(frappe.datetime.get_diff(frm.doc.deadline, frappe.datetime.get_today())) 
  
   if (frm.doc.docstatus===1){
   	if(frappe.datetime.get_diff(frm.doc.deadline, frappe.datetime.get_today()) < 0){
@@ -41,7 +42,6 @@ frappe.ui.form.on('Tender', {
      }
     }    
    }
-	},
- 
- 
+	}
+  
 });

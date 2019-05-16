@@ -57,26 +57,6 @@ def get_data():
 			]
 		},
    {
-			"label": _("Employee and Expense Claim"),
-			"items": [
-				{
-					"type": "doctype",
-					"name": "Employee",
-					"onboard": 1,
-				},
-        {
-					"type": "doctype",
-					"name": "Expense Claim",
-					"dependencies": ["Employee"]
-				},
-        {
-					"type": "doctype",
-					"name": "Expense Claim Type",
-					"dependencies": ["Employee"]
-				},
-			]
-		},
-   {
 			"label": _("Setup"),
 			"items": [
 				{
@@ -93,9 +73,21 @@ def get_data():
 				},
         {
 					"type": "doctype",
-					"name": "Approval Threshold",
+					"name": "User",
 					"onboard": 1,
-					"description": _("Settings for Approval Threshold"),
+					"description": _("Settings for User"),
+				},
+        {
+					"type": "doctype",
+					"name": "Role",
+					"onboard": 1,
+					"description": _("Settings for User"),
+				},
+        {
+					"type": "doctype",
+					"name": "Role Profile",
+					"onboard": 1,
+					"description": _("Settings for Role Profile"),
 				},
 			]
 		},
