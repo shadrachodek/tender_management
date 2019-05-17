@@ -93,6 +93,13 @@ frappe.ui.form.on('Contracts', {
 });
 
 frappe.ui.form.on('Contracts', 'validate', function(frm) {
+
+  if (frm.doc.start_date > frm.doc.end_date) {
+      //  msgprint(' End Date can not be before Commencement Date');
+        msgprint('Commencement Date can not be after End Date');
+        validated = false;
+    } 
+    
   set_total_balance(frm)
 });
 
@@ -141,21 +148,25 @@ let set_total_balance = function(frm) {
 }
 
 const get_tax = (function(frm, with_holding_tax_per=5) {
-  
-  let contract_value = frm.doc.contract_value;
-  let vat = ( contract_value / 100) * 5;
-  let with_holding_tax = ( contract_value / 100 ) * with_holding_tax_per;
-  let stamp_duty = ( contract_value / 100 ) * 1;
-  let total_tax = ( Number(vat) + Number(with_holding_tax) + Number(stamp_duty) );
-  let contract_value_after_tax = flt(frm.doc.contract_value) - total_tax;
-  
-  console.log(vat, with_holding_tax, stamp_duty, contract_value)
-  frm.set_value('vat', flt(vat));
-  frm.set_value('wht', flt(with_holding_tax) );
-  frm.set_value('stamp_duty', flt(stamp_duty));
-  frm.set_value('total_tax', total_tax);
-  
-  frm.set_value('contract_value_after_tax', contract_value_after_tax);
-  frm.refresh();
+    if (!frm.doc.contract_value){
+      frm.set_value('procurement_type', " ");
+      frm.refresh();
+      msgprint(__("!Oops, please select bid details before procurement type"));
+    }
+    let contract_value = frm.doc.contract_value;
+    let vat = ( contract_value / 100) * 5;
+    let with_holding_tax = ( contract_value / 100 ) * with_holding_tax_per;
+    let stamp_duty = ( contract_value / 100 ) * 1;
+    let total_tax = ( Number(vat) + Number(with_holding_tax) + Number(stamp_duty) );
+    let contract_value_after_tax = flt(frm.doc.contract_value) - total_tax;
+    
+    console.log(vat, with_holding_tax, stamp_duty, contract_value)
+    frm.set_value('vat', flt(vat));
+    frm.set_value('wht', flt(with_holding_tax) );
+    frm.set_value('stamp_duty', flt(stamp_duty));
+    frm.set_value('total_tax', total_tax);
+    
+    frm.set_value('contract_value_after_tax', contract_value_after_tax);
+    frm.refresh();
 
 })
