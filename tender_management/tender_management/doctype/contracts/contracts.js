@@ -20,12 +20,12 @@ frappe.ui.form.on('Contracts', {
        frm.set_value("contract_number", num);
      }
      
-   console.log(frm.doc)
+
    
   
        frm.set_query("payment_document_id", "payments", function(doc) {
       //	console.log(Object.values(doc.payments))
-      console.log(frm)
+      
       	return{
       		filters: [
       	//		['Contract Payments', 'contract', 'not in', 'Contract Payments', 'contract',],
@@ -85,7 +85,7 @@ frappe.ui.form.on('Contracts', {
           break;
           
         default:
-          console.log('!Oops, wrong ' + frm.doc.procurement_type + ' selection');
+          console.log('wrong ' + frm.doc.procurement_type + ' selection');
       }
       
     },
@@ -99,7 +99,8 @@ frappe.ui.form.on('Contracts', 'validate', function(frm) {
         msgprint('Commencement Date can not be after End Date');
         validated = false;
     } 
-    
+  
+  
   set_total_balance(frm)
 });
 
@@ -151,7 +152,7 @@ const get_tax = (function(frm, with_holding_tax_per=5) {
     if (!frm.doc.contract_value){
       frm.set_value('procurement_type', " ");
       frm.refresh();
-      msgprint(__("!Oops, please select bid details before procurement type"));
+      msgprint(__("please select bid details before procurement type"));
     }
     let contract_value = frm.doc.contract_value;
     let vat = ( contract_value / 100) * 5;
@@ -160,7 +161,6 @@ const get_tax = (function(frm, with_holding_tax_per=5) {
     let total_tax = ( Number(vat) + Number(with_holding_tax) + Number(stamp_duty) );
     let contract_value_after_tax = flt(frm.doc.contract_value) - total_tax;
     
-    console.log(vat, with_holding_tax, stamp_duty, contract_value)
     frm.set_value('vat', flt(vat));
     frm.set_value('wht', flt(with_holding_tax) );
     frm.set_value('stamp_duty', flt(stamp_duty));
