@@ -11,13 +11,14 @@ frappe.ui.form.on('Tender', {
      frm.set_value("tender_ref_number", num);
    }
    
+   
    if (frm.doc.docstatus===0){
      let total_lots = frm.doc.lot_number.length
      frm.set_value("number_of_lots", total_lots); 
    }
    
    
- if (frm.doc.deadline) {
+ if ( frm.doc.deadline ) {
     if (frm.doc.docstatus===1){
     	if(frappe.datetime.get_diff(frm.doc.deadline, frappe.datetime.get_today()) >= 0){
          frm.add_custom_button(__('Make Bids'), () => {

@@ -88,7 +88,7 @@ app_license = "MIT"
 # }
 
 #doc_events = {
-#  "contracts": {
+#  "Contracts": {
 #    "validate": "tender_management.tender_management.doctype.contracts.contracts.get_payment_balance",
 #  }
 #}
